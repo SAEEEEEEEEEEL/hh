@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are you Okay?</title>
+
+    <!-- CSS Styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button.no {
+            background-color: #f44336;
+        }
+
+        button.no:hover {
+            background-color: #e53935;
+        }
+
+        #responseText {
+            font-size: 1.5em;
+            color: #555;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Are you Okay?</h1>
+        <div class="buttons">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn" class="no">No</button>
+        </div>
+
+        <p id="responseText"></p> <!-- Element to display response text -->
+
+        <!-- Audio elements -->
+        <audio id="yesAudio">
+            <source src="yes.mp3" type="audio/mpeg"> <!-- Updated to use relative path -->
+            Your browser does not support the audio element.
+        </audio>
+
+        <audio id="noAudio">
+            <source src="no.mp3" type="audio/mpeg"> <!-- Updated to use relative path -->
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        // Function to play audio and display text based on user selection
+        function playAudio(answer) {
+            var yesAudio = document.getElementById('yesAudio'); // Get the Yes audio element
+            var noAudio = document.getElementById('noAudio');   // Get the No audio element
+            var responseText = document.getElementById('responseText'); // Get the response text element
+
+            if (answer === 'yes') {
+                // Play Yes audio directly
+                yesAudio.play();
+                responseText.textContent = 'Good majhi manjar 😺😊❤‍🩹 But Take Care!'; // Display Yes response text
+            } else {
+                // Play No audio directly
+                noAudio.play();
+                responseText.textContent = 'Chimuuuuu, take care! Chimnyaaa loves you! 🐣❤‍🩹🫶🏻🤌🏻😘👩‍❤‍💋‍👨'; // Display No response text
+            }
+        }
+
+        // Event listeners for the Yes and No buttons
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            playAudio('yes');
+        });
+
+        document.getElementById('noBtn').addEventListener('click', function() {
+            playAudio('no');
+        });
+    </script>
+</body>
+</html>
